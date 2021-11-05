@@ -27,7 +27,6 @@ stages:
       workingDirectory: hub
       displayName: Terraform Init
       env:
-        ARM_SUBSCRIP
         BACKEND_RESOURCE_GROUP_NAME: ${BACKEND_RESOURCE_GROUP_NAME}
         BACKEND_STORAGE_ACCOUNT_NAME: ${BACKEND_STORAGE_ACCOUNT_NAME}
         BACKEND_CONTAINER_NAME: ${BACKEND_CONTAINER_NAME}

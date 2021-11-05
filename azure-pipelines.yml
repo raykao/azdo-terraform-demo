@@ -10,9 +10,9 @@ pool:
   vmImage: ubuntu-latest
 
 stages:
-- stage: DeployTerraform
+- stage: Init
   jobs:
-  - job: Init
+  - job: InitTerraform
     steps:
     - script: |
         terraform init \
@@ -22,13 +22,17 @@ stages:
           -backend-config="key=$BACKEND_KEY" \
           -backend-config="use_azuread_auth=true"
       workingDirectory: hub
-  - job: Plan
+- stage: Plan
+  jobs:
+  - job: PlanTerraform
     steps:
     - script: |
         terraform plan -out tfplan
       workingDirectory: hub
-  - job: Apply
+- stage: Apply
+  jobs: 
+  - job: ApplyTerraform
     steps:
     - script: |
-        terraform apply tfplan
+        terraform apply -auto-approve tfplan
       workingDirectory: hub

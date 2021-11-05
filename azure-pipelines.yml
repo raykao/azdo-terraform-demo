@@ -9,6 +9,9 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+- group: Azure Credentials
+
 stages:
 - stage: Init
   jobs:

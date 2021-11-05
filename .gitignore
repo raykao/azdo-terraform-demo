@@ -1,2 +1,6 @@
 .terraform
 .terraform*.*
+tfplan
+
+.DS_Store
+desktop.ini

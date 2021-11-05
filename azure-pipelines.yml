@@ -27,10 +27,15 @@ stages:
       workingDirectory: hub
       displayName: Terraform Init
       env:
+        ARM_SUBSCRIP
         BACKEND_RESOURCE_GROUP_NAME: ${BACKEND_RESOURCE_GROUP_NAME}
         BACKEND_STORAGE_ACCOUNT_NAME: ${BACKEND_STORAGE_ACCOUNT_NAME}
         BACKEND_CONTAINER_NAME: ${BACKEND_CONTAINER_NAME}
         BACKEND_KEY: ${BACKEND_KEY}
+        ARM_CLIENT_ID: ${ARM_CLIENT_ID}
+        ARM_CLIENT_SECRET: ${ARM_CLIENT_SECRET}
+        ARM_SUBSCRIPTION_ID: ${ARM_SUBSCRIPTION_ID}
+        ARM_TENANT_ID: ${ARM_TENANT_ID}
     - script: |
         terraform plan -out tfplan
       workingDirectory: hub

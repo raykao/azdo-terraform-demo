@@ -25,6 +25,12 @@ stages:
           -backend-config="key=$BACKEND_KEY" \
           -backend-config="use_azuread_auth=true"
       workingDirectory: hub
+      displayName: Terraform Init
+      env:
+        BACKEND_RESOURCE_GROUP_NAME: ${BACKEND_RESOURCE_GROUP_NAME}
+        BACKEND_STORAGE_ACCOUNT_NAME: ${BACKEND_STORAGE_ACCOUNT_NAME}
+        BACKEND_CONTAINER_NAME: ${BACKEND_CONTAINER_NAME}
+        BACKEND_KEY: ${BACKEND_KEY}
     - script: |
         terraform plan -out tfplan
       workingDirectory: hub

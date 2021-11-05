@@ -22,17 +22,9 @@ stages:
           -backend-config="key=$BACKEND_KEY" \
           -backend-config="use_azuread_auth=true"
       workingDirectory: hub
-- stage: Plan
-  jobs:
-  - job: PlanTerraform
-    steps:
     - script: |
         terraform plan -out tfplan
       workingDirectory: hub
-- stage: Apply
-  jobs: 
-  - job: ApplyTerraform
-    steps:
     - script: |
         terraform apply -auto-approve tfplan
       workingDirectory: hub

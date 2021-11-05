@@ -13,16 +13,7 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
-- - task: PackerBuild@1
-  inputs:
-    templateType: 'builtin'
-    isManagedImage: true
-    baseImageSource: 'default'
-    baseImage: 'MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows': |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-
 - script: |
     terraform plan -out tfplan
     terraform apply tfplan
+  workingDirectory: hub
